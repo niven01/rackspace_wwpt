@@ -14,7 +14,7 @@ Attributes
 node['rackspace_wwpt']['install_method'] - MSI or ZIP  
 node['rackspace_wwpt']['msi_package_name'] - Example Octopus Tentacle 2.1.3.1223  
 node['rackspace_wwpt']['url'] - Example 'http://download.octopusdeploy.com/octopus/Octopus.Tentacle.2.1.3.1223-x64.msi'
-node['rackspace_wwpt']['checksum']  - Checksum value of above file (Can be found via http://hash.online-convert.com/sha256-generator)  
+node['rackspace_wwpt']['checksum']  - Checksum of above file (Can be found via http://hash.online-convert.com/sha256-generator)  
 node['rackspace_wwpt']['server'] - Octupus Deployment server URL  
 
 Usage
