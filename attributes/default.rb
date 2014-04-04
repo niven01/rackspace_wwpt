@@ -9,14 +9,14 @@
 # Copyright 2014, Rackspace UK, Inc.
 
 # Load encrypted data_bag values
-set_secrets = Chef::EncryptedDataBagItem.load("devopsguys", 'deploy')
+set_octo_secrets = Chef::EncryptedDataBagItem.load('octopus', 'devopsguys')
+# set_octo_certs = Chef::DataBagItem.load('octocerts', 'certs')
 
 # Octopus Tentacle version details
-default['rackspace_wwpt']['install_method'] = "msi" # msi or zip
-default['rackspace_wwpt']['msi_package_name'] = "Octopus Tentacle 2.1.3.1223"
-default['rackspace_wwpt']['url'] = 'http://download.octopusdeploy.com/octopus/Octopus.Tentacle.2.1.3.1223-x64.msi'
-default['rackspace_wwpt']['checksum']  = '5047cb66703cd51bccb06f521a72b6462e0365adfc36d206024481b6e940f0ed'
-default['rackspace_wwpt']['server'] = 'http://devopsguys.deploy.appsentrik.com/'
+default['rackspace_wwpt']['install_method'] = 'msi' # msi or zip
+default['rackspace_wwpt']['msi_package_name'] = 'Octopus Tentacle 2.3.3.1369'
+default['rackspace_wwpt']['url'] = 'http://download.octopusdeploy.com/octopus/Octopus.Tentacle.2.3.3.1369-x64.msi'
+default['rackspace_wwpt']['checksum']  = 'a0b4591406f9ba2434204ca099b99978b0497b19f384993e6e15b2931684e8d5'
 
 # Octopus Tentacle install locations
 default['rackspace_wwpt']['accept_eula'] = 'true'
@@ -25,11 +25,12 @@ default['rackspace_wwpt']['app'] = 'C:\Applications'
 default['rackspace_wwpt']['home'] = 'C:\Octopus'
 
 # Octopus Tentacle install configuration details
-default['rackspace_wwpt']['port'] = 10933
+default['rackspace_wwpt']['server'] = set_octo_secrets['server']
+default['rackspace_wwpt']['port'] = set_octo_secrets['port']
 default['rackspace_wwpt']['env'] = 'Production'
 default['rackspace_wwpt']['role'] = 'wwpt-webserver'
 default['rackspace_wwpt']['style'] = 'TentaclePassive'
-default['rackspace_wwpt']['apikey_value'] = set_secrets['api']
+default['rackspace_wwpt']['apikey_value'] = set_octo_secrets['api']
+# default['rackspace_wwpt']['tentaclecert'] = set_octo_certs['tentacle']
 
 default['rackspace_wwpt']['log'] = "#{Chef::Config[:file_cache_path]}/Tentacle.log"
-
