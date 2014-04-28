@@ -32,7 +32,7 @@ if platform?('windows')
   end
 
   batch 'configure_tentacle_agent' do
-    cwd "#{node['rackspace_wwpt']['install_dir']}"
+    cwd '#{node['rackspace_wwpt']['install_dir']}'
     code <<-EOH
        tentacle.exe create-instance --instance "Tentacle" --config "#{node['rackspace_wwpt']['home']}\\Tentacle\\Tentacle.config" --console
        tentacle.exe configure --instance "Tentacle" --home #{node['rackspace_wwpt']['home']} --console
