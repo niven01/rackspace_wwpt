@@ -1,6 +1,6 @@
 rackspace_wwpt Cookbook
 =================
-Install Octopus Tentacle v 2.0 and registers server with the Octopus Deploy server.
+Install base config to allow deployment of DevopsGuys 'http://worldwidepagetest.com' via Octopus Deploy.
 
 Requirements
 ------------
