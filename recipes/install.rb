@@ -35,7 +35,7 @@ if platform?('windows')
     cwd node['rackspace_wwpt']['install_dir']
     code <<-EOH
        tentacle.exe create-instance --instance "Tentacle" --config "#{node['rackspace_wwpt']['home']}\\Tentacle\\Tentacle.config" --console
-       tentacle.exe new-certificate --instance 'Tentacle' --console
+       tentacle.exe new-certificate --instance "Tentacle" --console
        tentacle.exe configure --instance "Tentacle" --home #{node['rackspace_wwpt']['home']} --console
        tentacle.exe configure --instance "Tentacle" --app #{node['rackspace_wwpt']['app']} --console
        tentacle.exe configure --instance "Tentacle" --port #{node['rackspace_wwpt']['port']} --console
