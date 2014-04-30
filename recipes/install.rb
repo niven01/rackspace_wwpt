@@ -19,17 +19,17 @@ if platform?('windows')
     action :install
   end
 
-#  user node['rackspace_wwpt']['temp_admin']  do
-#    comment 'Temp Rackspace Admin'
-#    password node['rackspace_wwpt']['temp_pass']
-#    action :create
-#  end
+  user node['rackspace_wwpt']['temp_admin']  do
+    comment 'Temp Rackspace Admin'
+    password node['rackspace_wwpt']['temp_pass']
+    action :create
+  end
 
-#  group 'Administrators' do
-#    action :modify
-#    members node['rackspace_wwpt']['temp_admin']
-#    append true
-#  end
+  group 'Administrators' do
+    action :modify
+    members node['rackspace_wwpt']['temp_admin']
+    append true
+  end
 
   batch 'configure_tentacle_agent' do
     cwd node['rackspace_wwpt']['install_dir']
@@ -43,11 +43,13 @@ if platform?('windows')
        tentacle.exe service --instance "Tentacle" --install --start --console
        tentacle.exe service --instance "Tentacle" --stop --console
        tentacle.exe service --instance "Tentacle" --start --console
+       schtasks.exe /Create /TN "Tentacle Install Certificate" /TR "'C:\\Program Files\\Octopus Deploy\\Tentacle\\tentacle.exe' new-certificate --instance 'Tentacle' --console" /ST 00:00 /SC Hourly /RU #{node['rackspace_wwpt']['temp_admin']} /RP #{node['rackspace_wwpt']['temp_pass']} /NP
+       schtasks.exe /Run /TN "Tentacle Install Certificate"
      EOH
   end
 
-# schtasks.exe /Create /TN "Tentacle Install Certificate" /TR "'C:\\Program Files\\Octopus Deploy\\Tentacle\\tentacle.exe' new-certificate --instance 'Tentacle' --console" /ST 00:00 /SC Hourly /RU #{node['rackspace_wwpt']['temp_admin']} /RP #{node['rackspace_wwpt']['temp_pass']} /NP
-#       schtasks.exe /Run /TN "Tentacle Install Certificate"
+ schtasks.exe /Create /TN "Tentacle Install Certificate" /TR "'C:\\Program Files\\Octopus Deploy\\Tentacle\\tentacle.exe' new-certificate --instance 'Tentacle' --console" /ST 00:00 /SC Hourly /RU #{node['rackspace_wwpt']['temp_admin']} /RP #{node['rackspace_wwpt']['temp_pass']} /NP
+       schtasks.exe /Run /TN "Tentacle Install Certificate"
 
 #       schtasks.exe /Delete /TN "Tentacle Install Certificate" /F
 
