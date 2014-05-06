@@ -18,6 +18,15 @@ Requirements
 #####Create Data Bag using prepopulated .json file
 
 - Edit devopsguys.json and enter required details, API, Server and port
+- Example
+
+{
+"id": "devopsguys",
+"api": "API-33485734834034",
+"server": "http://server.address.com",
+"port": "10933"
+}
+
 - Run: Knife data bag from file octopus devopguys devopsguys.json --secret-file encrypted_data_bag_secret
 
 
