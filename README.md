@@ -12,8 +12,8 @@ Requirements
 
 #####Create encrypted_data_bag_secret
 
-- Run: Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
-- This will eventually need to be copied to chef folder on desired managed server
+- Create a random encryption key: Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
+- For your chef clients to be able to decrypt the databag when needed copy over the secret key to the chef folder
 
 #####Create Data Bag using prepopulated .json file
 
