@@ -13,7 +13,7 @@ set_octo_secrets = Chef::EncryptedDataBagItem.load('octopus', 'devopsguys')
 default['rackspace_wwpt']['install_method'] = 'msi' # msi or zip
 default['rackspace_wwpt']['msi_package_name'] = 'Octopus Tentacle 2.4.1.1410'
 default['rackspace_wwpt']['url'] = 'http://download.octopusdeploy.com/octopus/Octopus.Tentacle.2.4.1.1410-x64.msi'
-#default['rackspace_wwpt']['checksum']  = 'a0b4591406f9ba2434204ca099b99978b0497b19f384993e6e15b2931684e8d5'
+default['rackspace_wwpt']['checksum']  = '194f4fb83916fbd2a5048e8127dc93ff79682f1b85ea346d17802970f4587d33'
 
 # Octopus Tentacle install locations
 default['rackspace_wwpt']['accept_eula'] = 'true'
