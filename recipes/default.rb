@@ -16,5 +16,5 @@ if platform?('windows')
   include_recipe 'rackspace_wwpt::install'
   include_recipe 'rackspace_wwpt::firewall'
 else
-  Chef::Log.warn('Octopus Deploy can only be installed on Windows using this cookbook.')
+  Chef::Log.warn('Octopus Deploy Tentacle can only be installed on Windows using this cookbook.')
 end
