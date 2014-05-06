@@ -24,7 +24,7 @@ Requirements
 "id": "devopsguys",
 "api": "API-FR43434343543543DFF",
 "server": "http://server.address.com/",
-"port": "",
+"port": 10933,
 "TempUser": "radmin",
 "TempPass": "Password123"
 }
