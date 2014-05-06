@@ -59,9 +59,8 @@ node['rackspace_wwpt']['env'] = 'Production'
 node['rackspace_wwpt']['role'] = 'wwpt-webserver'  
 node['rackspace_wwpt']['style'] = 'TentaclePassive'  
 node['rackspace_wwpt']['apikey_value'] = set_octo_secrets['api']  
-node['rackspace_wwpt']['temp_admin'] = 'adminaccount' - Account created with Admin rights (This acount is then deleted) - Ideally this will be in a encrypted data_bag  
-node['rackspace_wwpt']['temp_pass'] = '' - Password for above account - Ideally this will be in a encrypted data_bag  
-
+node['rackspace_wwpt']['temp_admin'] = 'adminaccount' - Account created with Admin rights (This acount is then deleted)
+node['rackspace_wwpt']['temp_pass'] = '' - Password for above account 
 
 Usage
 -----
