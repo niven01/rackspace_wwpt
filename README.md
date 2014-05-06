@@ -15,20 +15,19 @@ Requirements
 - Create a random encryption key: `Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret`
 - For your chef clients to be able to decrypt the databag when needed copy over the secret key to the chef folder
 
-#####Create Data Bag using prepopulated .json file
+#####Create Data Bag 
 
-- Edit `devopsguys.json` and enter required details, API, Server and port
-- Example:
+- Run: `knife data bag create --editor /usr/bin/vim --secret-file encrypted_data_bag_secret octopus devopsguys`
+- Example: 
 
-{  
-"id": "devopsguys",  
-"api": "API-33485734834034",  
-"server": "http://server.address.com",  
-"port": "10933"  
+{
+"id": "devopsguys",
+"api": "API-FR43434343543543DFF",
+"server": "http://server.address.com/",
+"port": "",
+"TempUser": "radmin",
+"TempPass": "Password123"
 }
-
-- Run: `Knife data bag from file octopus devopguys devopsguys.json --secret-file encrypted_data_bag_secret`
-
 
 Summary
 -------
