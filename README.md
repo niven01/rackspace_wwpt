@@ -12,13 +12,13 @@ Requirements
 
 #####Create encrypted_data_bag_secret
 
-- Create a random encryption key: Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
+- Create a random encryption key: `Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret`
 - For your chef clients to be able to decrypt the databag when needed copy over the secret key to the chef folder
 
 #####Create Data Bag using prepopulated .json file
 
-- Edit devopsguys.json and enter required details, API, Server and port
-- Example
+- Edit `devopsguys.json` and enter required details, API, Server and port
+- Example:
 
 {  
 "id": "devopsguys",  
@@ -27,7 +27,7 @@ Requirements
 "port": "10933"  
 }
 
-- Run: Knife data bag from file octopus devopguys devopsguys.json --secret-file encrypted_data_bag_secret
+- Run: `Knife data bag from file octopus devopguys devopsguys.json --secret-file encrypted_data_bag_secret`
 
 
 Summary
@@ -37,7 +37,7 @@ The installation of certificate requires elevated permissions. to achieve this t
 
 - Temporary admin account is created (recommend storing these in encrypted data_bag)
   
-- Scheduled windows task created which runs (C:\Program Files\\Octopus Deploy\Tentacle\\tentacle.exe' new-certificate --instance 'Tentacle' --console")     
+- Scheduled windows task created which runs (C:\Program Files\\Octopus Deploy\Tentacle\\install.bat 
 
 - Scheduled task and admin user deleted
 
