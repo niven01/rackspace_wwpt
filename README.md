@@ -8,6 +8,19 @@ Requirements
 #### cookbooks
 `iis`, `ms_dotnet45`, `windows_firewall`
 
+#### encrypted data_bag
+
+Create encrypted_data_bag_secret
+----------------------------------------------
+- Run: Openssl rand -base64 512 | tr -d '\r\n' > encrypted_data_bag_secret
+- This will eventually need to be copied to chef folder on desired managed server
+
+Create Data Bag using prepopulated .json file
+----------------------------------------------
+- Edit devopsguys.json and enter required details, API, Server and port
+- Run: Knife data bag from file octopus devopguys devopsguys.json --secret-file encrypted_data_bag_secret
+
+
 Summary
 -------
 Download Tentacle.exe and install using below attributes.  
