@@ -9,4 +9,6 @@ tentacle.exe service --instance "Tentacle" --install --start --console
 tentacle.exe service --instance "Tentacle" --stop --console
 tentacle.exe service --instance "Tentacle" --start --console
 schtasks.exe /Delete /TN "Tentacle Install" /F
+net user <%= node['rackspace_wwpt']['temp_admin']%> /Delete
 del "<%= node['rackspace_wwpt']['install_dir']%>\install.bat"
+

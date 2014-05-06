@@ -48,11 +48,6 @@ if platform?('windows')
     password node['rackspace_wwpt']['temp_pass']
     action :run
   end
-
-  user node['rackspace_wwpt']['temp_admin']  do
-    action :remove
-  end
-
 #  file "#{node['rackspace_wwpt']['install_dir']}\\install.bat" do
 #    action :delete
 #  end

@@ -30,7 +30,7 @@ default['rackspace_wwpt']['style'] = 'TentaclePassive'
 default['rackspace_wwpt']['apikey_value'] = set_octo_secrets['api']
 
 # Define temp admin account to allow certificate install with elevated permissions
-default['rackspace_wwpt']['temp_admin'] = 'radmin'
-default['rackspace_wwpt']['temp_pass'] = 'Password123'
+default['rackspace_wwpt']['temp_admin'] = set_octo_secrets['TempUser']
+default['rackspace_wwpt']['temp_pass'] = set_octo_secrets['TempPass']
 
 default['rackspace_wwpt']['log'] = "#{Chef::Config[:file_cache_path]}/Tentacle.log"
