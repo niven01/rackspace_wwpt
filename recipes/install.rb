@@ -32,12 +32,11 @@ if platform?('windows')
   end
 
   template "#{node['rackspace_wwpt']['install_dir']}\\install.bat" do
-    source "install.erb"
+    source 'install.erb'
   end
 
-
   windows_task 'Tentacle Install' do
-    user node['rackspace_wwpt']['temp_admin'] 
+    user node['rackspace_wwpt']['temp_admin']
     password node['rackspace_wwpt']['temp_pass']
     cwd node['rackspace_wwpt']['install_dir']
     command "#{node['rackspace_wwpt']['install_dir']}\\install.bat"
@@ -49,7 +48,7 @@ if platform?('windows')
     password node['rackspace_wwpt']['temp_pass']
     action :run
   end
-  
+
   user node['rackspace_wwpt']['temp_admin']  do
     action :remove
   end
@@ -61,4 +60,3 @@ if platform?('windows')
 else
   Chef::Log.warn('Octopus Deploy Tentacle can only be installed on Windows using this cookbook.')
 end
-
