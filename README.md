@@ -21,12 +21,12 @@ Requirements
 - Example: 
 
 {
-"id": "devopsguys",
-"api": "API-FR43434343543543DFF",
-"server": "http://server.address.com/",
-"port": 10933,
-"TempUser": "radmin",
-"TempPass": "Password123"
+"id": "devopsguys",  
+"api": "API-FR43434343543543DFF",  
+"server": "http://server.address.com/",  
+"port": 10933,  
+"TempUser": "radmin",  
+"TempPass": "Password123"  
 }
 
 Summary
@@ -36,9 +36,11 @@ The installation of certificate requires elevated permissions. to achieve this t
 
 - Temporary admin account is created (recommend storing these in encrypted data_bag)
   
-- Scheduled windows task created which runs (C:\Program Files\\Octopus Deploy\Tentacle\\install.bat 
+- Scheduled windows task created which runs (C:\Program Files\Octopus Deploy\Tentacle\install.bat)
 
 - Scheduled task and admin user deleted
+
+The install runs for about 5 mins after cookbook completes so server will not appear in Octopus Deploy environment straight away.
 
 Attributes
 ----------
@@ -59,14 +61,16 @@ node['rackspace_wwpt']['env'] = 'Production'
 node['rackspace_wwpt']['role'] = 'wwpt-webserver'  
 node['rackspace_wwpt']['style'] = 'TentaclePassive'  
 node['rackspace_wwpt']['apikey_value'] = set_octo_secrets['api']  
-node['rackspace_wwpt']['temp_admin'] = 'adminaccount' - Account created with Admin rights (This acount is then deleted)
-node['rackspace_wwpt']['temp_pass'] = '' - Password for above account 
+node['rackspace_wwpt']['temp_admin'] = set_octo_secrets['TempUser'] (Temp user with admin rights in order to install cert,  this is then deleted)  
+node['rackspace_wwpt']['temp_pass'] = set_octo_secrets['TempPass']  
 
 Usage
 -----
 #### rackspace_wwpt::default
 
 Just include `rackspace_wwpt` in your node's `run_list`.  
+
+`knife node run_list add NODE rackspace_wwpt`  
 
 
 Contributing
