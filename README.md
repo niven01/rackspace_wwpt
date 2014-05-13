@@ -17,7 +17,9 @@ Requirements
 
 #####Create Data Bag 
 
-- Run: `knife data bag create --editor /usr/bin/vim --secret-file encrypted_data_bag_secret octopus devopsguys`
+- Linux: `knife data bag create --editor /usr/bin/vim --secret-file encrypted_data_bag_secret octopus devopsguys`
+- Windows: `knife data bag create --editor notepad --secret-file encrypted_data_bag_secret octopus devopsguys`  
+
 - Example: 
 
 {  
@@ -31,10 +33,10 @@ Requirements
 
 Summary
 -------
-Download Tentacle.exe and install using below attributes.  
-The installation of certificate requires elevated permissions. to achieve this the following takes place:  
+Download Tentacle.exe and install using below attributes  .  
+The installation of certificate requires elevated permissions. To achieve this the following takes place:  
 
-- Temporary admin account is created (recommend storing these in encrypted data_bag)
+- Temporary admin account is created 
   
 - Scheduled windows task created which runs (C:\Program Files\Octopus Deploy\Tentacle\install.bat)
 
