@@ -20,7 +20,7 @@ Requirements
 - Run: `knife data bag create --editor /usr/bin/vim --secret-file encrypted_data_bag_secret octopus devopsguys`
 - Example: 
 
-{
+{  
 "id": "devopsguys",  
 "api": "API-FR43434343543543DFF",  
 "server": "http://server.address.com/",  
