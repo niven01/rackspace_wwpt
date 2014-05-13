@@ -48,9 +48,6 @@ if platform?('windows')
     password node['rackspace_wwpt']['temp_pass']
     action :run
   end
-#  file "#{node['rackspace_wwpt']['install_dir']}\\install.bat" do
-#    action :delete
-#  end
 
 else
   Chef::Log.warn('Octopus Deploy Tentacle can only be installed on Windows using this cookbook.')
